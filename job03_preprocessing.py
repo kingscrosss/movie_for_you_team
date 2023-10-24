@@ -25,7 +25,7 @@ for review in df.review:
     if count % 10000 == 0:
         print(count/10000, end='')
 
-    review = re.sub('[^가-힣]',' ', review)
+    review = re.sub('[^가-힣]',' ', review)       # 리뷰만 해줌
     # 형태소 분리, 명사, 동사, 형용사만 남길 예정
     tokened_review = okt.pos(review, stem=True)     # pos: 튜플의 형태로 묶어줌.
     # print(tokened_review)       # [('사극', 'Noun'), ('으로서', 'Josa'), ('갖추다', 'Verb'), ('것', 'Noun'),....
