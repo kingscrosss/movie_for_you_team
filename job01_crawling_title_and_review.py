@@ -48,8 +48,8 @@ service = ChromeService(executable_path=ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)  # <- options로 변경
 
 year = 2021
-for year in range(2021, 2023):
-    for month in range(6, 13):
+for year in range(2021, 2023):      # 2021~22년도
+    for month in range(1, 13):      # 12달
             titles = []
             reviews = []
             for j in range(1, 31):  # 랭킹 1~30까지
@@ -71,7 +71,7 @@ for year in range(2021, 2023):
                 # 더보기 5번
                 for i in range(5):
                     try:
-                        time.sleep(0.5)
+                        time.sleep(0.5)       # 더보기 페이지 로딩 시간
                         driver.find_element('xpath', '//*[@id="alex-area"]/div/div/div/div[3]/div[1]/button').click()
                     except: print(title, '더보기 error :', url)
                 for i in range(1,161):
@@ -85,8 +85,9 @@ for year in range(2021, 2023):
                     except: print(title,'review errer')
                 title = []
 
-            df_data = pd.DataFrame(titles, columns=['title'])
-            df_data['review'] = reviews
+            # df_data = pd.DataFrame(titles, columns=['title'])
+            # df_data['review'] = reviews
+            df_data = pd.DataFrame({'title':titles, 'review':reviews})
             df_data.to_csv('./crawling_data/review_{}{:02d}.csv'.format(year,month),index=False)
 
 driver.close()
