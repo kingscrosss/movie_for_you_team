@@ -59,6 +59,7 @@ for year in range(2021, 2023):      # 2021~22년도
                     driver.get(url)
                     time.sleep(0.5)
                     driver.find_element('xpath', '/html/body/div[2]/main/article/div/div[2]/ol/li[{}]/div/div[2]/strong/a'.format(j)).click()
+                    # BY.XPATH로 바껴서 그런걸지도?
                 except:
                     print("영화 접속 에러")
                     continue
