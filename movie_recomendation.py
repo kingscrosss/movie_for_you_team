@@ -7,8 +7,8 @@ import re
 from gensim.models import Word2Vec
 
 def getRecommendation(cosine_sim):
-    simScore = list(enumerate(cosine_sim[-1]))
-    simScore = sorted(simScore, key=lambda x:x[1], reverse=True)
+    simScore = list(enumerate(cosine_sim[-1]))      # 맨 뒤부터 높은 값
+    simScore = sorted(simScore, key=lambda x:x[1], reverse=True)    # lambda x: x[1] => simScore[1]값을 기준으로 거꾸로 정렬
     simScore = simScore[:11]
     moviIdx = [i[0] for i in simScore]
     recMovielist = df_reviews.iloc[moviIdx, 0]
