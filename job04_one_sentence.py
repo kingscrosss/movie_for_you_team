@@ -8,7 +8,7 @@ df.dropna(inplace=True)     # 공백문자 제거
 
 one_sentences = []
 for title in df['title'].unique():
-    temp = df[df['title'] == title]
+    temp = df[df['title'] == title]     # 조건 인덱싱: []안에 조건식을 넣어도 된다
     one_sentence = ' '.join(temp['cleaned_sentences'])
     # print(one_sentence)
     # exit()

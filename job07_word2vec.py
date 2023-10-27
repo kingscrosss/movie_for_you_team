@@ -19,7 +19,9 @@ embedding_model = Word2Vec(tokens, vector_size=100,     # 차원의 저주를 �
                            window=4, min_count=20,      # min_count: 출연 빈도가 20번 이하인건 안 반영할래
                            workers=10, epochs=100, sg=1)       # workers: 코어 몇개 쓸래?
 # epochs가 있다? 딥러닝 모델이다
-
+embedding_model.save('./models/word2vec_movie_review.model')
+print(list(embedding_model.wv.index_to_key))
+print(len(embedding_model.wv.index_to_key))
 
 
 
